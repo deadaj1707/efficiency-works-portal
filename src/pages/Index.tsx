@@ -1,13 +1,78 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import { Activity, Clock, DollarSign, Zap } from 'lucide-react';
+import MainLayout from '@/components/layout/MainLayout';
+import MetricCard from '@/components/dashboard/MetricCard';
+import EfficiencyChart from '@/components/dashboard/EfficiencyChart';
+import AgentTable from '@/components/dashboard/AgentTable';
+import CostOverview from '@/components/dashboard/CostOverview';
+import TimeMetrics from '@/components/dashboard/TimeMetrics';
+import StatusCard from '@/components/dashboard/StatusCard';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <MainLayout>
+      <div className="flex flex-col gap-8">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
+          <p className="text-muted-foreground">Monitor and optimize your agent workflows</p>
+        </div>
+        
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <MetricCard
+            title="Active Agents"
+            value="24"
+            icon={<Zap className="h-5 w-5 text-primary" />}
+            trend={{ value: 12, isPositive: true }}
+          />
+          <MetricCard
+            title="Total Workflows"
+            value="142"
+            icon={<Activity className="h-5 w-5 text-primary" />}
+            trend={{ value: 8, isPositive: true }}
+          />
+          <MetricCard
+            title="Avg. Response Time"
+            value="180ms"
+            icon={<Clock className="h-5 w-5 text-primary" />}
+            trend={{ value: 5, isPositive: false }}
+          />
+          <MetricCard
+            title="Current Cost"
+            value="$1,284.56"
+            icon={<DollarSign className="h-5 w-5 text-primary" />}
+            trend={{ value: 2, isPositive: false }}
+          />
+        </div>
+        
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <EfficiencyChart />
+          <StatusCard
+            title="Completed Workflows"
+            value={89}
+            total={142}
+            status="63% completion rate"
+            iconColor="green-500"
+          />
+          <StatusCard
+            title="System Load"
+            value={62}
+            total={100}
+            status="Moderate load"
+            iconColor="yellow-500"
+          />
+        </div>
+        
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <AgentTable />
+          <CostOverview />
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <TimeMetrics />
+        </div>
       </div>
-    </div>
+    </MainLayout>
   );
 };
 
