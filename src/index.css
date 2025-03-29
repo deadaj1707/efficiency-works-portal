@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 255 255 255;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -14,74 +14,74 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 221.2 83% 53.3%;
+    --primary: 267 75% 59%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 267 30% 95%;
+    --secondary-foreground: 267 50% 40%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 267 20% 95%;
+    --muted-foreground: 267 20% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 267 40% 96%;
+    --accent-foreground: 267 70% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83% 53.3%;
+    --border: 267 30% 90%;
+    --input: 267 30% 90%;
+    --ring: 267 75% 55%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222.2 84% 4.9%;
-    --sidebar-primary: 221.2 83% 53.3%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 210 40% 96.1%;
-    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
-    --sidebar-border: 214.3 31.8% 91.4%;
-    --sidebar-ring: 221.2 83% 53.3%;
+    --sidebar-background: 267 40% 98%;
+    --sidebar-foreground: 267 80% 20%;
+    --sidebar-primary: 267 75% 59%;
+    --sidebar-primary-foreground: 267 10% 98%;
+    --sidebar-accent: 267 40% 96%;
+    --sidebar-accent-foreground: 267 70% 30%;
+    --sidebar-border: 267 30% 90%;
+    --sidebar-ring: 267 75% 55%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 267 25% 12%;
+    --foreground: 267 10% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 267 30% 15%;
+    --card-foreground: 267 10% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 267 30% 15%;
+    --popover-foreground: 267 10% 98%;
 
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 267 75% 65%;
+    --primary-foreground: 267 10% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 267 30% 25%;
+    --secondary-foreground: 267 10% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 267 30% 25%;
+    --muted-foreground: 267 20% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 267 30% 25%;
+    --accent-foreground: 267 10% 98%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 267 10% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --border: 267 30% 25%;
+    --input: 267 30% 25%;
+    --ring: 267 75% 65%;
 
-    --sidebar-background: 222.2 84% 4.9%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217.2 91.2% 59.8%;
-    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
-    --sidebar-accent: 217.2 32.6% 17.5%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 224.3 76.3% 48%;
+    --sidebar-background: 267 30% 15%;
+    --sidebar-foreground: 267 10% 98%;
+    --sidebar-primary: 267 75% 65%;
+    --sidebar-primary-foreground: 267 10% 98%;
+    --sidebar-accent: 267 30% 25%;
+    --sidebar-accent-foreground: 267 10% 98%;
+    --sidebar-border: 267 30% 25%;
+    --sidebar-ring: 267 75% 65%;
   }
 }
 
@@ -107,7 +107,15 @@
   }
 
   .gradient-border {
-    @apply relative before:absolute before:-inset-[1px] before:rounded-lg before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:to-blue-400/50 before:-z-10;
+    @apply relative before:absolute before:-inset-[1px] before:rounded-lg before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:to-purple-400/50 before:-z-10;
+  }
+  
+  .purple-gradient {
+    @apply bg-gradient-to-r from-purple-600 to-purple-400;
+  }
+
+  .purple-glow {
+    @apply shadow-[0_0_15px_rgba(124,58,237,0.5)];
   }
 }
 

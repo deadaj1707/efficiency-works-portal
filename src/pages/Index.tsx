@@ -15,7 +15,7 @@ const Index = () => {
     <MainLayout>
       <div className="flex flex-col gap-8">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-purple-900 dark:text-purple-100">Dashboard</h1>
           <p className="text-muted-foreground">Monitor and optimize your agent workflows</p>
         </div>
         
@@ -23,25 +23,25 @@ const Index = () => {
           <MetricCard
             title="Active Agents"
             value="24"
-            icon={<Zap className="h-5 w-5 text-primary" />}
+            icon={<Zap className="h-5 w-5 text-purple-600" />}
             trend={{ value: 12, isPositive: true }}
           />
           <MetricCard
             title="Total Workflows"
             value="142"
-            icon={<Activity className="h-5 w-5 text-primary" />}
+            icon={<Activity className="h-5 w-5 text-purple-600" />}
             trend={{ value: 8, isPositive: true }}
           />
           <MetricCard
             title="Avg. Response Time"
             value="180ms"
-            icon={<Clock className="h-5 w-5 text-primary" />}
+            icon={<Clock className="h-5 w-5 text-purple-600" />}
             trend={{ value: 5, isPositive: false }}
           />
           <MetricCard
             title="Current Cost"
             value="$1,284.56"
-            icon={<DollarSign className="h-5 w-5 text-primary" />}
+            icon={<DollarSign className="h-5 w-5 text-purple-600" />}
             trend={{ value: 2, isPositive: false }}
           />
         </div>
@@ -53,14 +53,14 @@ const Index = () => {
             value={89}
             total={142}
             status="63% completion rate"
-            iconColor="green-500"
+            iconColor="purple-500"
           />
           <StatusCard
             title="System Load"
             value={62}
             total={100}
             status="Moderate load"
-            iconColor="yellow-500"
+            iconColor="purple-400"
           />
         </div>
         
