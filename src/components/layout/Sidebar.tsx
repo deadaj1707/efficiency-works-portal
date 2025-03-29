@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Activity, BarChart3, Home, LayoutDashboard, Settings, Users } from 'lucide-react';
+import { Activity, BarChart3, Bell, Home, LayoutDashboard, Settings, Users } from 'lucide-react';
 
 interface SidebarProps {
   open: boolean;
@@ -31,6 +31,11 @@ const Sidebar: React.FC<SidebarProps> = ({ open }) => {
       name: 'Analytics',
       path: '/analytics',
       icon: <BarChart3 className="h-5 w-5" />,
+    },
+    {
+      name: 'Activity',
+      path: '/activity',
+      icon: <Bell className="h-5 w-5" />,
     },
     {
       name: 'Settings',

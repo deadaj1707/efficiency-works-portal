@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import ActivityItem from './ActivityItem';
+import { Skeleton } from '@/components/ui/skeleton';
 
 // Mock activity data - in a real app, this would come from an API
 const mockActivities = [
@@ -99,8 +100,32 @@ const mockActivities = [
   }
 ];
 
+interface Activity {
+  id: string;
+  type: string;
+  title: string;
+  description: string;
+  timestamp: string;
+  actor: {
+    name: string;
+    avatar: string | null;
+  };
+  entityId: string | null;
+  entityType: string | null;
+}
+
 const ActivityFeed: React.FC = () => {
-  const [activities, setActivities] = useState(mockActivities);
+  const [activities, setActivities] = useState<Activity[]>(mockActivities);
+  const [loading, setLoading] = useState(true);
+
+  // Simulate loading and data fetching
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   // Simulate real-time updates
   useEffect(() => {
@@ -124,10 +149,34 @@ const ActivityFeed: React.FC = () => {
         
         setActivities(prev => [newActivity, ...prev.slice(0, 9)]); // Keep only 10 most recent
       }
-    }, 30000); // Every 30 seconds check
+    }, 15000); // Every 15 seconds check
     
     return () => clearInterval(interval);
   }, []);
+
+  if (loading) {
+    return (
+      <Card className="h-full">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-xl font-bold">Activity Feed</CardTitle>
+        </CardHeader>
+        <CardContent className="p-0">
+          <div className="space-y-4 px-4">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="flex items-start gap-4 rounded-lg border p-3">
+                <Skeleton className="h-9 w-9 rounded-full" />
+                <div className="space-y-2 flex-1">
+                  <Skeleton className="h-4 w-2/3" />
+                  <Skeleton className="h-3 w-full" />
+                  <Skeleton className="h-2 w-1/3" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card className="h-full">

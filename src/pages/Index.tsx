@@ -8,6 +8,7 @@ import AgentTable from '@/components/dashboard/AgentTable';
 import CostOverview from '@/components/dashboard/CostOverview';
 import TimeMetrics from '@/components/dashboard/TimeMetrics';
 import StatusCard from '@/components/dashboard/StatusCard';
+import ActivityFeed from '@/components/activity/ActivityFeed';
 
 const Index = () => {
   return (
@@ -45,7 +46,7 @@ const Index = () => {
           />
         </div>
         
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <EfficiencyChart />
           <StatusCard
             title="Completed Workflows"
@@ -64,11 +65,16 @@ const Index = () => {
         </div>
         
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <AgentTable />
-          <CostOverview />
+          <div className="lg:col-span-2">
+            <AgentTable />
+          </div>
+          <div className="md:row-span-2 h-full">
+            <ActivityFeed />
+          </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <CostOverview />
           <TimeMetrics />
         </div>
       </div>
